@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/Auth/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ChatRoom/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Eureka-server/Consumer/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Eureka-server/Eureka-client/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Eureka-server/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Nacos/Nacos-Consumer/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Nacos/Nacos-Provider/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Nacos/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/S2/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/S2/src2/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Xu/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/demo1/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../../../Maven-resposity/org/springframework/boot/spring-boot-starter-parent/2.7.11/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../../../Maven-resposity/org/springframework/boot/spring-boot-starter-parent/2.7.9/src/main/resources" charset="UTF-8" />
+  </component>
+</project>

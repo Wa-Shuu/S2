@@ -1,0 +1,11 @@
+server:
+  port: ${SERVER_PORT:7001}
+spring:
+  application:
+    name: demo1
+  cloud:
+    nacos:
+      server-addr: ${SERVER_ADDR:localhost}:8848
+      username: nacos
+      password: nacos
+

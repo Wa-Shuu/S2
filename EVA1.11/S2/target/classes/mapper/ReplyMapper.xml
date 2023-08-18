@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.washuu.s2.mapper.ReplyMapper">
+  <resultMap id="BaseResultMap" type="com.washuu.s2.domain.Reply">
+    <id column="rid" jdbcType="INTEGER" property="rid" />
+    <result column="comment_id" jdbcType="INTEGER" property="commentId" />
+    <result column="reply_id" jdbcType="INTEGER" property="replyId" />
+    <result column="to_uid" jdbcType="INTEGER" property="toUid" />
+    <result column="from_uid" jdbcType="INTEGER" property="fromUid" />
+    <result column="content" jdbcType="VARCHAR" property="content" />
+    <result column="unlike" jdbcType="INTEGER" property="unlike" />
+    <result column="commend" jdbcType="INTEGER" property="commend" />
+    <result column="create_time" jdbcType="VARCHAR" property="createTime" />
+    <result column="reply_type" jdbcType="VARCHAR" property="replyType" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    rid, comment_id, reply_id, to_uid, from_uid, content, unlike, commend, create_time, 
+    reply_type
+  </sql>
+  <select id="selectByExample" parameterType="com.washuu.s2.domain.ReplyExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from reply
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from reply
+    where rid = #{rid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from reply
+    where rid = #{rid,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.washuu.s2.domain.ReplyExample">
+    delete from reply
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.washuu.s2.domain.Reply">
+    insert into reply (rid, comment_id, reply_id, 
+      to_uid, from_uid, content, 
+      unlike, commend, create_time, 
+      reply_type)
+    values (#{rid,jdbcType=INTEGER}, #{commentId,jdbcType=INTEGER}, #{replyId,jdbcType=INTEGER}, 
+      #{toUid,jdbcType=INTEGER}, #{fromUid,jdbcType=INTEGER}, #{content,jdbcType=VARCHAR}, 
+      #{unlike,jdbcType=INTEGER}, #{commend,jdbcType=INTEGER}, #{createTime,jdbcType=VARCHAR}, 
+      #{replyType,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.washuu.s2.domain.Reply">
+    insert into reply
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="rid != null">
+        rid,
+      </if>
+      <if test="commentId != null">
+        comment_id,
+      </if>
+      <if test="replyId != null">
+        reply_id,
+      </if>
+      <if test="toUid != null">
+        to_uid,
+      </if>
+      <if test="fromUid != null">
+        from_uid,
+      </if>
+      <if test="content != null">
+        content,
+      </if>
+      <if test="unlike != null">
+        unlike,
+      </if>
+      <if test="commend != null">
+        commend,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="replyType != null">
+        reply_type,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="rid != null">
+        #{rid,jdbcType=INTEGER},
+      </if>
+      <if test="commentId != null">
+        #{commentId,jdbcType=INTEGER},
+      </if>
+      <if test="replyId != null">
+        #{replyId,jdbcType=INTEGER},
+      </if>
+      <if test="toUid != null">
+        #{toUid,jdbcType=INTEGER},
+      </if>
+      <if test="fromUid != null">
+        #{fromUid,jdbcType=INTEGER},
+      </if>
+      <if test="content != null">
+        #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="unlike != null">
+        #{unlike,jdbcType=INTEGER},
+      </if>
+      <if test="commend != null">
+        #{commend,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=VARCHAR},
+      </if>
+      <if test="replyType != null">
+        #{replyType,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.washuu.s2.domain.ReplyExample" resultType="java.lang.Long">
+    select count(*) from reply
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update reply
+    <set>
+      <if test="row.rid != null">
+        rid = #{row.rid,jdbcType=INTEGER},
+      </if>
+      <if test="row.commentId != null">
+        comment_id = #{row.commentId,jdbcType=INTEGER},
+      </if>
+      <if test="row.replyId != null">
+        reply_id = #{row.replyId,jdbcType=INTEGER},
+      </if>
+      <if test="row.toUid != null">
+        to_uid = #{row.toUid,jdbcType=INTEGER},
+      </if>
+      <if test="row.fromUid != null">
+        from_uid = #{row.fromUid,jdbcType=INTEGER},
+      </if>
+      <if test="row.content != null">
+        content = #{row.content,jdbcType=VARCHAR},
+      </if>
+      <if test="row.unlike != null">
+        unlike = #{row.unlike,jdbcType=INTEGER},
+      </if>
+      <if test="row.commend != null">
+        commend = #{row.commend,jdbcType=INTEGER},
+      </if>
+      <if test="row.createTime != null">
+        create_time = #{row.createTime,jdbcType=VARCHAR},
+      </if>
+      <if test="row.replyType != null">
+        reply_type = #{row.replyType,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="example != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update reply
+    set rid = #{row.rid,jdbcType=INTEGER},
+      comment_id = #{row.commentId,jdbcType=INTEGER},
+      reply_id = #{row.replyId,jdbcType=INTEGER},
+      to_uid = #{row.toUid,jdbcType=INTEGER},
+      from_uid = #{row.fromUid,jdbcType=INTEGER},
+      content = #{row.content,jdbcType=VARCHAR},
+      unlike = #{row.unlike,jdbcType=INTEGER},
+      commend = #{row.commend,jdbcType=INTEGER},
+      create_time = #{row.createTime,jdbcType=VARCHAR},
+      reply_type = #{row.replyType,jdbcType=VARCHAR}
+    <if test="example != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.washuu.s2.domain.Reply">
+    update reply
+    <set>
+      <if test="commentId != null">
+        comment_id = #{commentId,jdbcType=INTEGER},
+      </if>
+      <if test="replyId != null">
+        reply_id = #{replyId,jdbcType=INTEGER},
+      </if>
+      <if test="toUid != null">
+        to_uid = #{toUid,jdbcType=INTEGER},
+      </if>
+      <if test="fromUid != null">
+        from_uid = #{fromUid,jdbcType=INTEGER},
+      </if>
+      <if test="content != null">
+        content = #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="unlike != null">
+        unlike = #{unlike,jdbcType=INTEGER},
+      </if>
+      <if test="commend != null">
+        commend = #{commend,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=VARCHAR},
+      </if>
+      <if test="replyType != null">
+        reply_type = #{replyType,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where rid = #{rid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.washuu.s2.domain.Reply">
+    update reply
+    set comment_id = #{commentId,jdbcType=INTEGER},
+      reply_id = #{replyId,jdbcType=INTEGER},
+      to_uid = #{toUid,jdbcType=INTEGER},
+      from_uid = #{fromUid,jdbcType=INTEGER},
+      content = #{content,jdbcType=VARCHAR},
+      unlike = #{unlike,jdbcType=INTEGER},
+      commend = #{commend,jdbcType=INTEGER},
+      create_time = #{createTime,jdbcType=VARCHAR},
+      reply_type = #{replyType,jdbcType=VARCHAR}
+    where rid = #{rid,jdbcType=INTEGER}
+  </update>
+</mapper>

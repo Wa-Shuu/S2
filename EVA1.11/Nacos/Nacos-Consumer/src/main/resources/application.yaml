@@ -1,0 +1,20 @@
+server:
+  port: ${SERVER_PORT:8000}
+spring:
+  application:
+    name: alibaba-nacos-consumer
+  cloud:
+    nacos: # ????????
+      server-addr: ${SERVER_ADDR:localhost}:8848
+      username: nacos
+      password: nacos
+# discovery: # ???? ???????
+# namespace: car-namespace
+# group: dev # ?????????????????????
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+

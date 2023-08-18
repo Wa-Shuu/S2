@@ -1,0 +1,9 @@
+2023-06-03 10:33:07.381 [restartedMain] INFO  com.washuu.s2.S2Application - Starting S2Application using Java 1.8.0_351 on LAPTOP-7Q6DKBOL with PID 4056 (E:\JAVA\IDEAProject\EVA1.11\S2\target\classes started by WaShuu in E:\JAVA\IDEAProject\EVA1.11)
+2023-06-03 10:33:07.382 [restartedMain] INFO  com.washuu.s2.S2Application - The following 1 profile is active: "test"
+2023-06-03 10:38:44.555 [restartedMain] INFO  com.washuu.s2.S2Application - Starting S2Application using Java 1.8.0_351 on LAPTOP-7Q6DKBOL with PID 12592 (E:\JAVA\IDEAProject\EVA1.11\S2\target\classes started by WaShuu in E:\JAVA\IDEAProject\EVA1.11)
+2023-06-03 10:38:44.556 [restartedMain] INFO  com.washuu.s2.S2Application - The following 1 profile is active: "test"
+2023-06-03 10:39:42.225 [restartedMain] INFO  com.washuu.s2.S2Application - Starting S2Application using Java 1.8.0_351 on LAPTOP-7Q6DKBOL with PID 18380 (E:\JAVA\IDEAProject\EVA1.11\S2\target\classes started by WaShuu in E:\JAVA\IDEAProject\EVA1.11)
+2023-06-03 10:39:42.226 [restartedMain] INFO  com.washuu.s2.S2Application - The following 1 profile is active: "test"
+2023-06-03 10:43:12.015 [restartedMain] INFO  com.washuu.s2.S2Application - Starting S2Application using Java 1.8.0_351 on LAPTOP-7Q6DKBOL with PID 10628 (E:\JAVA\IDEAProject\EVA1.11\S2\target\classes started by WaShuu in E:\JAVA\IDEAProject\EVA1.11)
+2023-06-03 10:43:12.016 [restartedMain] INFO  com.washuu.s2.S2Application - The following 1 profile is active: "test"
+2023-06-03 10:43:38.695 [restartedMain] INFO  com.washuu.s2.S2Application - Started S2Application in 28.058 seconds (JVM running for 29.621)

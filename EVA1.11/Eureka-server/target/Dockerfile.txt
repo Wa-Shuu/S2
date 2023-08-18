@@ -1,0 +1,6 @@
+FROM openjdk:8
+ENV workdir=/home/dockerImages/EurekaServer
+COPY . ${workdir}
+WORKDIR ${workdir}
+EXPOSE 8761
+CMD ["java", "-jar", "Eureka-server-0.0.1-SNAPSHOT.jar"]

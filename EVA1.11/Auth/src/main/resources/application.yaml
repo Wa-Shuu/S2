@@ -1,0 +1,47 @@
+server:
+  port: 80
+spring:
+  application:
+    name: gateway-80
+  cloud:
+    gateway:
+      enabled: true #开启网关，默认是开启的
+      discovery:
+        locator:
+          enabled: true #开启动态路由
+#          lower-case-service-id: true #动态路由小驼峰规则
+      routes: #设置路由，注意是数组，可以设置多个，按照 id 做隔离
+        - id: provider #路由 id，没有要求，保持唯一即可
+          uri: lb://eureka-server #设置真正的服务 ip:port
+          predicates: #断言匹配
+            - Path=/server/** #和服务中的路径匹配,是正则匹配的模式
+        - id: consumer
+          uri: lb://consumer
+          predicates:
+            - Path=/consumer/** #如果匹配到第一个路由，则第二个就不会走了，注意这不是负载均衡
+          filters:
+            - name: RequestRateLimiter
+              args:
+                key-resolver: '#{@hostAddrKeyResolver}'
+                redis-rate-limiter.replenishRate: 1
+                redis-rate-limiter.burstCapacity: 3
+#redis properties
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    database: 0
+
+#eureka 的配置
+eureka:
+  instance:
+    instance-id: ${spring.application.name}:${server.port}
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

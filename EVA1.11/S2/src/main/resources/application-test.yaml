@@ -1,0 +1,52 @@
+#?????
+server:
+  port: 8080
+#???????????
+  servlet:
+    context-path: /s2
+    #property characterEncoding-setting
+    encoding:
+      enabled: true
+      charset: utf-8
+      force: true
+school:
+  schoolName: SHU
+  sid: 1
+
+#mys2:
+#  loginurl: /s2/login
+
+
+#connect to MySQL
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/s2?useUnicode=true&serverTimeZone=Asia/Shanghai&characterEncoding=utf-8
+    username: root
+    password: Washuu1003
+
+#mybatis config
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  configuration.log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+#eureka:
+#  client:
+#    service-url:
+#      defaultZone: http://106.52.119.173:8761/eureka/
+#    register-with-eureka: true #????
+#    fetch-registry: true #??????
+#    registry-fetch-interval-seconds: 5 # ?? eureka-client ?????????????
+#  instance:
+#    hostname: localhost # ??????
+#    instance-id: ${eureka.instance.hostname}:${spring.application.name}:${server.port} # ?? id
+#    prefer-ip-address: true # ????? ip ?????
+#    lease-renewal-interval-in-seconds: 10 # ?? eureka client ????? server ????
+#    lease-expiration-duration-in-seconds: 20 #?? eureka server ?????? client ????????
+#    #??????????????????????????????????
+#
+com:
+  washuu:
+    jwt:
+      signature: "0925"

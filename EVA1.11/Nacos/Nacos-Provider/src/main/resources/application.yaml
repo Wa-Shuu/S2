@@ -1,0 +1,11 @@
+server:
+  port: ${SERVER_PORT:7000}
+spring:
+  application:
+    name: alibaba-nacos-provider
+  cloud:
+    nacos:
+      server-addr: ${SERVER_ADDR:localhost}:8848
+      username: nacos
+      password: nacos
+
